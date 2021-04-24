@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    mode: HTML5
+    suffix: .html
+
+logging:
+  level:
+    root: DEBUG
+    org.example.openstack.demo: DEBUG
