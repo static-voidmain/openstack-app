@@ -48,13 +48,13 @@ public class OpenStackTokenAuthProvider implements AuthenticationProvider {
                 projectId = list.get(0).getId();
                 projectName = list.get(0).getName();
                 domainId = list.get(0).getDomainId();
-                domainName = list.get(0).getDomain().getName();
+                domainName = domain;
             }else{
                 KeystoneProject keystoneProject = list.stream().filter(x->x.getId().equals(defaultProjectId)).collect(Collectors.toList()).get(0);
                 projectId = defaultProjectId;
                 projectName = keystoneProject.getName();
                 domainId = keystoneProject.getDomainId();
-                domainName = keystoneProject.getDomain().getName();
+                domainName = domain;
             }
             UserInformation.UserInformationBuilder userInformationBuilder = UserInformation.builder().unscopedToken(openStackAuth.getOsClient().getToken());
 
